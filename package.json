@@ -1,8 +1,8 @@
 {
-  "name": "movie-api",
+  "name": "package.json",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Movie API",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -12,13 +12,15 @@
     "url": "git+https://github.com/samu13813/Movie-API.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sam G",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/samu13813/Movie-API/issues"
   },
   "homepage": "https://github.com/samu13813/Movie-API#readme",
   "dependencies": {
+    "body-parser": "^1.19.1",
+    "express": "^4.17.2",
     "lodash": "^4.17.21"
   },
   "devDependencies": {
