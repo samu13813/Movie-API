@@ -20,5 +20,8 @@
   "homepage": "https://github.com/samu13813/Movie-API#readme",
   "dependencies": {
     "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "eslint": "^8.7.0"
   }
 }
