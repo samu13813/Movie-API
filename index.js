@@ -1,7 +1,8 @@
 const express = require("express"),
   app = express(),
   http = require("http"),
-  url = require("url");
+  url = require("url"),
+  morgan = require("morgan");
 
 let topBooks = [
   {
@@ -46,6 +47,8 @@ let topBooks = [
   },
 ];
 
+app.use(morgan("common"));
+
 app.get("/", (req, res) => {
   res.send("Welcome to my Movies API!");
 });
@@ -55,7 +58,6 @@ app.get("/", (req, res) => {
 // });
 
 app.use("/documentation", express.static('public'));
-
 
 app.get("/books", (req, res) => {
   res.json(topBooks);
