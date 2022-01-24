@@ -57,7 +57,7 @@ app.get("/", (req, res) => {
 //   res.sendFile("/public/documentation.html", {root: __dirname});
 // });
 
-app.use("/documentation", express.static('public'));
+app.use(express.static('public'));
 
 app.get("/books", (req, res) => {
   res.json(topBooks);
