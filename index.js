@@ -135,6 +135,18 @@ app.get("/movies/:title", (req, res) => {
   }
 });
 
+// Gets the data about a genre, by name
+
+app.get("/movies/genre/:genreName", (req,res) => {
+  const genre = movies.find(movie => movie.genre === req.params.genreName).genre;
+
+  if (genre) {
+    res.status(200).json(genre);
+  } else {
+    res.status(400).send("Genre with name " + req.params.genreName + " was not found.")
+  }
+});
+
 // Gets the data about the director, by name
 
 app.get("/movies/director/:directorName", (req, res) => {
