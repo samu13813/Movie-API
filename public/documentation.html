@@ -3,12 +3,93 @@
 
 <head>
   <meta charset="utf-8">
+  <link rel="stylesheet" href="/css/styles.css">
   <title>Movies API</title>
 </head>
 
 <body>
-  <p>This API provides users with access to information about different movies, directors, and genres. <br>
-    Users will be able to sign up, update their personal importation, and create a list of their favorite movies.</p>
+  <h1>Documentation</h1>
+  <table>
+    <tr>
+      <th>Business Logic</th>
+      <th>URL</th>
+      <th>HTTP Method</th>
+      <th>Request body data format</th>
+      <th>Response body data format</th>
+    </tr>
+    <tr>
+      <td>Gets a list of all movies</td>
+      <td>/movies</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about all the movies by name</td>
+    </tr>
+    <tr>
+      <td>Gets the data of the director by name</td>
+      <td>/movies/director/[NAME]</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about the director, containing name and date of birth. Example:
+        <div class="jsonFormat">
+          { <br>
+          &nbsp;&nbsp;name: "Christopher Nolan", <br>
+          &nbsp;&nbsp;dob: "30/07/1970" <br>
+          } <br>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Allows new user to register</td>
+      <td>/users</td>
+      <td>POST</td>
+      <td>A JSON object holding data about the user to add, structured like:
+        <div class="jsonFormat">
+          { <br>
+          &nbsp;&nbsp;name: "Sam", <br>
+          &nbsp;&nbsp;favoriteMovies: [ ] <br>
+          } <br>
+        </div>
+      </td>
+      <td>A JSON object holding data about the new user added, including a unique ID. Example:
+        <div class="jsonFormat">
+          { <br>
+          &nbsp;&nbsp;name: "Sam", <br>
+          &nbsp;&nbsp;id: "7cb380cb-a1bc-48f7-ab06-1e69c2f88bb4" <br>
+          &nbsp;&nbsp;favoriteMovies: [ ] <br>
+          } <br>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>Allows the user to update their username</td>
+      <td>/users/[NAME]/[NEWNAME]</td>
+      <td>PUT</td>
+      <td>None</td>
+      <td>A text message idicating whether the username was succesfully updated.</td>
+    </tr>
+    <tr>
+      <td>Allows user to add a movie to their list of favorites</td>
+      <td>/users/[NAME]/[MOVIETITLE]</td>
+      <td>POST</td>
+      <td>None</td>
+      <td>A text message indicating whether the movie was succesfully added</td>
+    </tr>
+    <tr>
+      <td>Allows user to remove a movie from their list of favorites</td>
+      <td>/users/[NAME]/[MOVETITLE]</td>
+      <td>DELETE</td>
+      <td>None</td>
+      <td>A text message indicating whether the movie was succesfully removed</td>
+    </tr>
+    <tr>
+      <td>Allows user to delete their username</td>
+      <td>/users/[NAME]</td>
+      <td>DELETE</td>
+      <td>None</td>
+      <td>A text indicating whether the username was succesfully deleted</td>
+    </tr>
+
+  </table>
 </body>
 
 </html>
