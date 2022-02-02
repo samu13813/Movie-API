@@ -25,15 +25,15 @@
       <td>A JSON object holding data about all the movies by name</td>
     </tr>
     <tr>
-      <td>Gets a a genre by name</td>
+      <td>Gets a genre by name</td>
       <td>/movies/genre/[GENRENAME]</td>
       <td>GET</td>
       <td>None</td>
-      <td>A JSON object showing the genre</td>
+      <td>A JSON object showing a description about the genre</td>
     </tr>
     <tr>
       <td>Gets the data of the director by name</td>
-      <td>/movies/director/[NAME]</td>
+      <td>/movies/director/[DIRECTORNAME]</td>
       <td>GET</td>
       <td>None</td>
       <td>A JSON object holding data about the director, containing name and date of birth. Example:
@@ -48,42 +48,77 @@
       </td>
     </tr>
     <tr>
+      <td>Gets a list of all users</td>
+      <td>/users</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about all users</td>
+    </tr>
+    <tr>
+      <td>Gets a user by name</td>
+      <td>/users/[USERNAME]</td>
+      <td>GET</td>
+      <td>None</td>
+      <td>A JSON object holding data about the user. Example:
+        <div class="jsonFormat">
+          { <br>
+          &nbsp;&nbsp;username: "Will12", <br>
+          &nbsp;&nbsp;password: "testing123" <br>
+          &nbsp;&nbsp;email: "Will12@gmail.com" <br>
+          &nbsp;&nbsp;birthday: "19-08-1999" <br>
+          &nbsp;&nbsp;favoriteMovies: "[ ]" <br>
+          } <br>
+        </div>
+      </td>
+    </tr>
+    <tr>
       <td>Allows new user to register</td>
       <td>/users</td>
       <td>POST</td>
       <td>A JSON object holding data about the user to add, structured like:
         <div class="jsonFormat">
           { <br>
-          &nbsp;&nbsp;name: "Sam", <br>
+          &nbsp;&nbsp;username: "Sam", <br>
           &nbsp;&nbsp;password: "usernamepassword", <br>
           &nbsp;&nbsp;email: "usernameemail@gmail.com", <br>
-          &nbsp;&nbsp;birthdate: "14-08-1989", <br>
+          &nbsp;&nbsp;birthday: "14-08-1989", <br>
           &nbsp;&nbsp;favoriteMovies: [ ] <br>
           } <br>
         </div>
+        "Name", "Password", & "Email" are required fields
       </td>
       <td>A JSON object holding data about the new user added, including a unique ID. Example:
         <div class="jsonFormat">
           { <br>
-          &nbsp;&nbsp;name: "Sam", <br>
+          &nbsp;&nbsp;username: "Sam", <br>
           &nbsp;&nbsp;password: "usernamepassword", <br>
           &nbsp;&nbsp;email: "usernameemail@gmail.com", <br>
-          &nbsp;&nbsp;birthdate: "14-08-1989", <br>
+          &nbsp;&nbsp;birthday: "14-08-1989", <br>
           &nbsp;&nbsp;favoriteMovies: [ ] <br>
           } <br>
         </div>
       </td>
     </tr>
     <tr>
-      <td>Allows the user to update their username</td>
-      <td>/users/[NAME]/[NEWNAME]</td>
+      <td>Allows the user to update their details</td>
+      <td>/users/[NAME]</td>
       <td>PUT</td>
-      <td>None</td>
+      <td>A JSON object holding the data to update, structured like:
+        <div class="jsonFormat">
+          { <br>
+          &nbsp;&nbsp;Username: "newUserName", <br>
+          &nbsp;&nbsp;password: "newPassword", <br>
+          &nbsp;&nbsp;email: "newEmail@gmail.com", <br>
+          &nbsp;&nbsp;birthday: "updatedBirthday", <br>
+          } <br>
+        </div>
+        User can insert 1 to 4 fields
+      </td>
       <td>A text message idicating whether the username was succesfully updated.</td>
     </tr>
     <tr>
       <td>Allows user to add a movie to their list of favorites</td>
-      <td>/users/[NAME]/[MOVIETITLE]</td>
+      <td>/users/[NAME]/movies/[MOVIEID]</td>
       <td>POST</td>
       <td>None</td>
       <td>A text message indicating whether the movie was succesfully added</td>
