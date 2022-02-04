@@ -6,7 +6,7 @@ const express = require("express"),
       morgan = require("morgan"),
       mongoose = require("mongoose");
 
-// Links model.js mongoose schema
+// Imports model.js mongoose schema to project
 
 const Models = require("./models.js"),
       Movies = Models.Movie,
@@ -23,10 +23,18 @@ app.use(bodyParser.urlencoded({ extended: true}));
 app.use(morgan("common"));
 app.use(express.static('public'));
 
+// Imports auth to project
+
+let auth = require("./auth")(app);
+
+//Imports passport to project
+
+const passport = require("passport");
+require("./passport");
 
 // Get all movies
 
-app.get("/movies", (req, res) => {
+app.get("/movies", passport.authenticate("jwt", { session: false }), (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(200).json(movies);
