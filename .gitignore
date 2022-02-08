@@ -4203,3 +4203,11 @@ node_modules/pause/History.md
 node_modules/pause/index.js
 node_modules/pause/Makefile
 node_modules/pause/Readme.md
+node_modules/object-assign/readme.md
+node_modules/object-assign/license
+node_modules/object-assign/index.js
+node_modules/cors/README.md
+node_modules/cors/LICENSE
+node_modules/cors/lib/index.js
+node_modules/cors/HISTORY.md
+node_modules/cors/CONTRIBUTING.md
