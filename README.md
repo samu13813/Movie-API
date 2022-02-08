@@ -29,6 +29,7 @@ single movie by title to the user
   * Express
   * React
   * Node.js
+* Authentication & Authorization
 
 ## **License**
 
