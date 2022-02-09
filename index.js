@@ -121,7 +121,8 @@ app.get("/movies/director/:DirectorName", passport.authenticate("jwt", { session
   Birthday: Date
 }*/
 
-app.post("/users", passport.authenticate("jwt", { session: false }), (req, res) => {
+app.post("/users", (req, res) => {
+  let hashedPassword = Users.hashPassword(req.body.Password);
   Users.findOne({ Username: req.body.Username })
   .then((user) => {
     if (user) {
@@ -130,15 +131,15 @@ app.post("/users", passport.authenticate("jwt", { session: false }), (req, res) 
       Users
         .create({
           Username: req.body.Username,
-          Password: req.body.Password,
+          Password: hashedPassword,
           Email: req.body.Email,
           Birthday: req.body.Birthday
         })
         .then((user) => {res.status(201).json(user) })
-      .catch((err) => {
-        console.error(err);
-        res.status(500).send("Error: " + err);
-      })
+        .catch((err) => {
+          console.error(err);
+          res.status(500).send("Error: " + err);
+      });
     }
   })
   .catch((err) => {
