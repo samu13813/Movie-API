@@ -4,7 +4,8 @@ const express = require("express"),
       http = require("http"),
       url = require("url"),
       morgan = require("morgan"),
-      mongoose = require("mongoose");
+      mongoose = require("mongoose"),
+      { check, validationResult } = require("express-validator");
 
 // Imports model.js mongoose schema to project
 
