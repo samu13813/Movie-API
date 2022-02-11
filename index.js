@@ -273,9 +273,9 @@ app.delete("/users/:Username", passport.authenticate("jwt", { session: false }),
 
 // Shows home page
 
-// app.get("/", (req, res) => {
-//   res.send("Welcome to my Movies API!");
-// });
+app.get("/", (req, res) => {
+  res.send("Welcome to my Movies API!");
+});
 
 // Error handling
 
