@@ -257,12 +257,12 @@ app.delete("/users/:Username/movies/:MovieID", passport.authenticate("jwt", { se
 // Delete a user by username
 
 app.delete("/users/:Username", passport.authenticate("jwt", { session: false }), (req, res) => {
-  Users.findOneAndRemove({ Username: req.params.Username})
+  Users.findOneAndRemove({ Username: req.params.Name})
   .then((user) => {
     if(!user) {
-      res.status(400).send(req.params.Username + " was not found.");
+      res.status(400).send(req.params.Name + " was not found.");
     } else {
-      res.status(200).send(req.params.Username + " was deleted.");
+      res.status(200).send(req.params.Name + " was deleted.");
     }
   })
   .catch((err) => {
