@@ -42,7 +42,7 @@ app.use(cors({
   }
 }));
 
-// Imports auth to project
+// Imports auth to project.
 
 let auth = require("./auth")(app);
 
