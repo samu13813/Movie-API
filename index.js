@@ -53,7 +53,7 @@ require("./passport");
 
 // Get all movies
 
-app.get("/movies", passport.authenticate("jwt", { session: false }), (req, res) => {
+app.get("/movies", (req, res) => {
   Movies.find()
     .then((movies) => {
       res.status(200).json(movies);
@@ -66,7 +66,7 @@ app.get("/movies", passport.authenticate("jwt", { session: false }), (req, res) 
 
 // Get movie by title
 
-app.get("/movies/:Title", passport.authenticate("jwt", { session: false }), (req,res) => {
+app.get("/movies/:Title", (req,res) => {
   Movies.findOne({ Title: req.params.Title})
     .then((movie) => {
       if(movie){
@@ -83,7 +83,7 @@ app.get("/movies/:Title", passport.authenticate("jwt", { session: false }), (req
 
 // Gets the data about a genre, by name
 
-app.get("/movies/genre/:GenreName", passport.authenticate("jwt", { session: false }), (req, res) => {
+app.get("/movies/genre/:GenreName", (req, res) => {
   Movies.findOne({ "Genre.Name" : req.params.GenreName})
   .then((genre) => {
     if(genre) {
@@ -100,7 +100,7 @@ app.get("/movies/genre/:GenreName", passport.authenticate("jwt", { session: fals
 
 // Gets the data about the director, by name
 
-app.get("/movies/director/:DirectorName", passport.authenticate("jwt", { session: false }), (req, res) => {
+app.get("/movies/director/:DirectorName", (req, res) => {
   Movies.findOne({ "Director.Name": req.params.DirectorName})
   .then((director) => {
     if(director){
