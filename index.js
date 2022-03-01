@@ -28,7 +28,7 @@ app.use(express.static('public'));
 
 // CORS
 
-let allowedOrigins = ["http://localhost:8080"];
+let allowedOrigins = ["http://localhost:1234"];
 
 const cors = require("cors");
 app.use(cors({
