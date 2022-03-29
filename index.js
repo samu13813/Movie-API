@@ -28,7 +28,7 @@ app.use(express.static('public'));
 
 // CORS
 
-let allowedOrigins = ["http://localhost:1234", "https://m.media-amazon.com/images/M/MV5BMjA4MDU0NTUyN15BMl5BanBnXkFtZTgwMzQxMzY4MjE@._V1_.jpg"];
+let allowedOrigins = ["http://localhost:1234"];
 
 const cors = require("cors");
 app.use(cors({
