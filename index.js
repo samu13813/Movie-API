@@ -28,7 +28,7 @@ app.use(express.static('public'));
 
 // CORS
 
-let allowedOrigins = ["http://localhost:1234"];
+let allowedOrigins = ["http://localhost:1234", 'https://myflixmoviesapp.netlify.app'];
 
 const cors = require("cors");
 app.use(cors({
